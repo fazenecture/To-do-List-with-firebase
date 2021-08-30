@@ -241,86 +241,82 @@ class _TodoListState extends State<TodoList> {
                                                 .width *
                                             0.38,
                                         child: gClicked == true
-                                            ? Expanded(
-                                                child: Container(
-                                                  child: TextFormField(
-                                                    cursorColor: Color(0xFF19181B),
-                                                    autofocus: true,
-                                                    maxLines: 1,
-                                                    initialValue: gTitle,
-                                                    style: GoogleFonts.lato(
-                                                        fontSize: 15),
-                                                    decoration:
-                                                        InputDecoration(
-                                                      contentPadding:
-                                                          EdgeInsets
-                                                              .symmetric(
-                                                                  vertical: 0,
-                                                                  horizontal:
-                                                                      0),
-                                                      focusedBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide:
-                                                            BorderSide.none,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(12),
-                                                      ),
-                                                      enabledBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide:
-                                                            BorderSide.none,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(12),
-                                                      ),
-                                                      border:
-                                                          OutlineInputBorder(
-                                                        borderSide:
-                                                            BorderSide.none,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(12),
-                                                      ),
-                                                    ),
-                                                    onFieldSubmitted:
-                                                        (value) {
-                                                      setState(() {
-                                                        taskTitle.text =
-                                                            value;
-                                                        gClicked = false;
-                                                        dbRef
-                                                            .child(
-                                                                'Todo/${timeStamp[index]}')
-                                                            .update({
-                                                          'Title':
-                                                              taskTitle.text,
-                                                          'Clicked': gClicked,
-                                                        });
-                                                        taskTitle.clear();
-
-                                                      });
-                                                    },
-                                                    onChanged: (value){
-                                                      setState(() {
-                                                        taskTitle.text =
-                                                            value;
-                                                        gClicked = false;
-                                                        dbRef
-                                                            .child(
-                                                            'Todo/${timeStamp[index]}')
-                                                            .update({
-                                                          'Title':
-                                                          taskTitle.text,
-                                                          'Clicked': gClicked,
-                                                        });
-                                                        taskTitle.clear();
-
-                                                      });
-                                                    },
-                                                  ),
+                                            ? TextFormField(
+                                              cursorColor: Color(0xFF19181B),
+                                              autofocus: true,
+                                              maxLines: 1,
+                                              initialValue: gTitle,
+                                              style: GoogleFonts.lato(
+                                                  fontSize: 15),
+                                              decoration:
+                                                  InputDecoration(
+                                                contentPadding:
+                                                    EdgeInsets
+                                                        .symmetric(
+                                                            vertical: 0,
+                                                            horizontal:
+                                                                0),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide:
+                                                      BorderSide.none,
+                                                  borderRadius:
+                                                      BorderRadius
+                                                          .circular(12),
                                                 ),
-                                              )
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide:
+                                                      BorderSide.none,
+                                                  borderRadius:
+                                                      BorderRadius
+                                                          .circular(12),
+                                                ),
+                                                border:
+                                                    OutlineInputBorder(
+                                                  borderSide:
+                                                      BorderSide.none,
+                                                  borderRadius:
+                                                      BorderRadius
+                                                          .circular(12),
+                                                ),
+                                              ),
+                                              onFieldSubmitted:
+                                                  (value) {
+                                                setState(() {
+                                                  taskTitle.text =
+                                                      value;
+                                                  gClicked = false;
+                                                  dbRef
+                                                      .child(
+                                                          'Todo/${timeStamp[index]}')
+                                                      .update({
+                                                    'Title':
+                                                        taskTitle.text,
+                                                    'Clicked': gClicked,
+                                                  });
+                                                  taskTitle.clear();
+
+                                                });
+                                              },
+                                              // onChanged: (value){
+                                              //   setState(() {
+                                              //     taskTitle.text =
+                                              //         value;
+                                              //     gClicked = false;
+                                              //     dbRef
+                                              //         .child(
+                                              //         'Todo/${timeStamp[index]}')
+                                              //         .update({
+                                              //       'Title':
+                                              //       taskTitle.text,
+                                              //       'Clicked': gClicked,
+                                              //     });
+                                              //     taskTitle.clear();
+                                              //
+                                              //   });
+                                              // },
+                                            )
                                             : GestureDetector(
                                                 onTap: () {
                                                   setState(() {
